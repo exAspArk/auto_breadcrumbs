@@ -1,0 +1,8 @@
+ru:
+  breadcrumbs:
+    resources:
+      root: 'Home'
+    actions:
+      new: 'New'
+      show: 'Show'
+      edit: 'Edit'
