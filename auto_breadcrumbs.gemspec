@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Evgeny Li']
   spec.email         = ['exaspark@gmail.com']
   spec.description   = %q{Automatically add breadcrumbs to each page with localization}
-  spec.summary       = %q{Automatically adding breadcrumbs}
+  spec.summary       = %q{Automatically adding breadcrumbs by using localization}
   spec.homepage      = 'https://github.com/exAspArk/auto_breadcrumbs'
   spec.license       = 'MIT'
 
