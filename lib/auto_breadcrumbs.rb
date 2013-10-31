@@ -1,4 +1,5 @@
 require 'auto_breadcrumbs/version'
+require 'auto_breadcrumbs/controller'
 
 module AutoBreadcrumbs
   extend ActiveSupport::Concern
