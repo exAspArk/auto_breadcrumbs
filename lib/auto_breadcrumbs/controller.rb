@@ -11,9 +11,10 @@ module AutoBreadcrumbs
     def add_breadcrumb_on_action(options = {})
       add_breadcrumb I18n.t('breadcrumbs.root'), :root_path
 
-      if controllers_index_path && request.path != root_path
-        add_breadcrumb index_translation, controllers_index_path
-        unless params[:action] == 'index'
+      if request.path != root_path
+        if controllers_index_path && params[:action] == 'index'
+          add_breadcrumb index_translation, controllers_index_path
+        else
           add_breadcrumb action_translation
         end
       end
