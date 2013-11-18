@@ -9,7 +9,7 @@ module AutoBreadcrumbs
     private
 
     def add_breadcrumb_on_action(options = {})
-      add_breadcrumb I18n.t('breadcrumbs.root'), :root_path
+      add_breadcrumb breadcrumbs_t('root'), :root_path
 
       if request.path != root_path
         if controllers_index_path && params[:action] == 'index'
@@ -21,14 +21,14 @@ module AutoBreadcrumbs
     end
 
     def index_translation
-      I18n.t("breadcrumbs.controllers.#{ params[:controller] }.index")
+      breadcrumbs_t("controllers.#{ params[:controller] }.index")
     end
 
     def action_translation
       begin
-        I18n.t!("breadcrumbs.controllers.#{ params[:controller] }.#{ breadcrumbs_action_name }")
+        breadcrumbs_t!("controllers.#{ params[:controller] }.#{ breadcrumbs_action_name }")
       rescue I18n::MissingTranslationData
-        I18n.t("breadcrumbs.actions.#{ breadcrumbs_action_name }")
+        breadcrumbs_t("actions.#{ breadcrumbs_action_name }")
       end
     end
 
@@ -45,6 +45,14 @@ module AutoBreadcrumbs
       else
         params[:action]
       end
+    end
+
+    def breadcrumbs_t(path)
+      I18n.t('auto_breadcrumbs.' << path)
+    end
+
+    def breadcrumbs_t!(path)
+      I18n.t!('auto_breadcrumbs.' << path)
     end
   end
 end

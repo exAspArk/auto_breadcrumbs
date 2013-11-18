@@ -1,5 +1,5 @@
 en:
-  breadcrumbs:
+  auto_breadcrumbs:
     root: 'Home'
     actions:
       new: 'New'

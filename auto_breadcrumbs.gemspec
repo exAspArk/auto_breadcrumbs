@@ -19,4 +19,10 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'breadcrumbs_on_rails'
+
+  spec.add_development_dependency 'activemodel'
+
+  spec.add_development_dependency 'rspec-rails'
+  spec.add_development_dependency 'capybara'
+  spec.add_development_dependency 'poltergeist'
 end

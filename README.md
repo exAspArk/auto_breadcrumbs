@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ### Installing locales
 
-To install locale file run:
+To generate locale file run:
 
     $ rails g auto_breadcrumbs:install
 
@@ -31,7 +31,6 @@ To install locale file run:
 ```ruby
 class UsersController < ApplicationController
   include AutoBreadcrumbs
-
   ...
 end
 ```
@@ -40,7 +39,7 @@ end
 
 ```yml
 en:
-  breadcrumbs:
+  auto_breadcrumbs:
     root: 'Home'
     actions:
       new: 'New'
