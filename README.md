@@ -1,4 +1,4 @@
-# AutoBreadcrumbs
+# AutoBreadcrumbs [![Build Status](https://travis-ci.org/exAspArk/auto_breadcrumbs.png)](https://travis-ci.org/exAspArk/auto_breadcrumbs)
 
 Automatically add breadcrumbs to each page by using locales and gem `breadcrumbs_on_rails`.
 
