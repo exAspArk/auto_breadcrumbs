@@ -1,4 +1,4 @@
-class UserPage < Struct.new(:paths)
+class BreadcrumbPage < Struct.new(:paths)
   include Capybara::DSL
 
   def visit_page(path)

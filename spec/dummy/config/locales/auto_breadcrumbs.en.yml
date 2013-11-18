@@ -11,3 +11,6 @@ en:
         edit: 'Settings'
         sync: 'Synchronization'
         dup: 'Duplication'
+      cities:
+        index: 'Cities / Towns'
+        show: 'Browse'

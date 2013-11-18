@@ -5,4 +5,6 @@ Dummy::Application.routes.draw do
     get :sync, on: :collection
     get :dup,  on: :member
   end
+
+  resources :cities, only: [:edit, :show]
 end

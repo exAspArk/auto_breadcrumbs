@@ -1,4 +1,4 @@
-# AutoBreadcrumbs [![Build Status](https://travis-ci.org/exAspArk/auto_breadcrumbs.png)](https://travis-ci.org/exAspArk/auto_breadcrumbs)
+# Auto Breadcrumbs [![Build Status](https://travis-ci.org/exAspArk/auto_breadcrumbs.png)](https://travis-ci.org/exAspArk/auto_breadcrumbs)
 
 Automatically add breadcrumbs to each page by using locales and gem `breadcrumbs_on_rails`.
 
@@ -13,12 +13,6 @@ gem 'auto_breadcrumbs'
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install auto_breadcrumbs
-
-### Installing locales
 
 To generate locale file run:
 
@@ -74,8 +68,3 @@ For more information about customization of breadcrumbs visit [breadcrumbs_on_ra
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
-## TODO
-
-* Add tests
-* Add supporting of nested resources

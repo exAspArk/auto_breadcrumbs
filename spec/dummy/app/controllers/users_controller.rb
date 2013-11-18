@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  before_filter -> { render 'shared/blank_page' }
-
   def index
   end
 
