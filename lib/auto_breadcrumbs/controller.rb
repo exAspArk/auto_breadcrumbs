@@ -1,3 +1,5 @@
+require 'breadcrumbs_on_rails'
+
 module AutoBreadcrumbs
   module Controller
     extend ActiveSupport::Concern

@@ -61,6 +61,8 @@ en:
 </body>
 ```
 
+For example, if you go to '/users/1/edit' it will show breadcrums like `Home / Users / Settings`.
+
 ## Customization
 
 For more information about breadcrumbs' customization visit [breadcrumbs_on_rails](https://github.com/weppos/breadcrumbs_on_rails).
