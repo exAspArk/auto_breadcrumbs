@@ -10,3 +10,4 @@ en:
         index: 'Users'
         edit: 'Settings'
         sync: 'Synchronization'
+        dup: 'Duplication'
