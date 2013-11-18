@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = AutoBreadcrumbs::VERSION
   spec.authors       = ['Evgeny Li']
   spec.email         = ['exaspark@gmail.com']
-  spec.description   = %q{Automatically add breadcrumbs to each page with localization}
-  spec.summary       = %q{Automatically adding breadcrumbs by using localization}
+  spec.description   = %q{Automatically add breadcrumbs to each page by using locales}
+  spec.summary       = %q{Automatically adding breadcrumbs by using locales}
   spec.homepage      = 'https://github.com/exAspArk/auto_breadcrumbs'
   spec.license       = 'MIT'
 
