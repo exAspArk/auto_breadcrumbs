@@ -20,7 +20,11 @@ module AutoBreadcrumbs
     end
 
     def index_translation
-      breadcrumbs_t("controllers.#{ params[:controller] }.index")
+      begin
+        breadcrumbs_t!("controllers.#{ params[:controller] }.index")
+      rescue I18n::MissingTranslationData
+        params[:controller].split('_').map(&:capitalize).join(' ')
+      end
     end
 
     def action_translation

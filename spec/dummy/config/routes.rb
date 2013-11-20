@@ -6,5 +6,7 @@ Dummy::Application.routes.draw do
     get :dup,  on: :member
   end
 
+  resources :country_names, only: [:index]
+
   resources :cities, only: [:edit, :show]
 end

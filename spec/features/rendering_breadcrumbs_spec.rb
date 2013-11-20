@@ -9,6 +9,11 @@ feature 'Rendering breadcrumbs' do
   let(:root_page) { BreadcrumbPage.new(index: root_path) }
   let(:root_breadcrumbs) { [locale['root']] }
 
+  # Country name page -----------------------------------------------------------------------------
+
+  let(:country_name_page) { BreadcrumbPage.new(index: country_names_path) }
+  let(:country_name_index_breadcrumbs) { root_breadcrumbs + ['Country Names'] }
+
   # City page -------------------------------------------------------------------------------------
 
   let(:city_page) {
@@ -38,6 +43,11 @@ feature 'Rendering breadcrumbs' do
   scenario 'on root page' do
     root_page.visit_page(:index)
     expect(root_page.breadcrumbs).to eq(root_breadcrumbs)
+  end
+
+  scenario 'without translation' do
+    country_name_page.visit_page(:index)
+    expect(country_name_page.breadcrumbs).to eq(country_name_index_breadcrumbs)
   end
 
   scenario 'when resource without index action' do
