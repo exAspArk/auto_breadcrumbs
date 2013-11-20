@@ -23,7 +23,7 @@ To generate locale file run:
 1) Include `auto_breadcrumbs` in your controller:
 
 ```ruby
-class UsersController < ApplicationController
+class ApplicationController < ActionController::Base
   include AutoBreadcrumbs
   ...
 end
