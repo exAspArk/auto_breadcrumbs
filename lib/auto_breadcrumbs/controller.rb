@@ -20,19 +20,13 @@ module AutoBreadcrumbs
     end
 
     def index_translation
-      begin
-        breadcrumbs_t!("controllers.#{ params[:controller] }.index")
-      rescue I18n::MissingTranslationData
-        params[:controller].split('_').map(&:capitalize).join(' ')
-      end
+      breadcrumbs_t("controllers.#{ params[:controller] }.index") ||
+      params[:controller].split('_').map(&:capitalize).join(' ')
     end
 
     def action_translation
-      begin
-        breadcrumbs_t!("controllers.#{ params[:controller] }.#{ breadcrumbs_action_name }")
-      rescue I18n::MissingTranslationData
-        breadcrumbs_t("actions.#{ breadcrumbs_action_name }")
-      end
+      breadcrumbs_t("controllers.#{ params[:controller] }.#{ breadcrumbs_action_name }") ||
+      breadcrumbs_t("actions.#{ breadcrumbs_action_name }")
     end
 
     def controllers_index_path
@@ -51,11 +45,7 @@ module AutoBreadcrumbs
     end
 
     def breadcrumbs_t(path)
-      I18n.t('auto_breadcrumbs.' << path)
-    end
-
-    def breadcrumbs_t!(path)
-      I18n.t!('auto_breadcrumbs.' << path)
+      I18n.t('auto_breadcrumbs.' << path, default: '').presence
     end
   end
 end
