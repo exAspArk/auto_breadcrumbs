@@ -6,6 +6,9 @@ module AutoBreadcrumbs
 
     included do
       before_filter :add_breadcrumb_on_action, except: :destroy
+
+      helper_method :resource_translation
+      helper_method :action_translation
     end
 
     private
@@ -14,12 +17,12 @@ module AutoBreadcrumbs
       add_breadcrumb breadcrumbs_t('root'), :root_path
 
       unless request.path == root_path
-        add_breadcrumb(index_translation, controllers_index_path) if controllers_index_path
+        add_breadcrumb(resource_translation, index_path) if index_path
         add_breadcrumb(action_translation) unless params[:action] == 'index'
       end
     end
 
-    def index_translation
+    def resource_translation
       breadcrumbs_t("controllers.#{ params[:controller] }.index") ||
       params[:controller].humanize
     end
@@ -30,7 +33,7 @@ module AutoBreadcrumbs
       breadcrumbs_action_name.humanize
     end
 
-    def controllers_index_path
+    def index_path
       url_for(controller: params[:controller]) rescue nil
     end
 
