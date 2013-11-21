@@ -57,6 +57,9 @@ en:
 
 For example, if you go to `/users/1/edit` it will show breadcrums like `Home / Users / Settings`.
 
+In case when translations are absent it will try to build breadcrumbs automatically depending on resource and action names.
+For example, if you visit `/countries/new` it will show breadcrums `Home / Countries / New`.
+
 ## Customization
 
 For more information about customization of breadcrumbs visit [breadcrumbs_on_rails](https://github.com/weppos/breadcrumbs_on_rails).

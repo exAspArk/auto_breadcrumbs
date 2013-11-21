@@ -27,7 +27,7 @@ module AutoBreadcrumbs
     def action_translation
       breadcrumbs_t("controllers.#{ params[:controller] }.#{ breadcrumbs_action_name }") ||
       breadcrumbs_t("actions.#{ breadcrumbs_action_name }") ||
-      params[:action].humanize
+      breadcrumbs_action_name.humanize
     end
 
     def controllers_index_path
