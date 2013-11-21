@@ -21,12 +21,13 @@ module AutoBreadcrumbs
 
     def index_translation
       breadcrumbs_t("controllers.#{ params[:controller] }.index") ||
-      params[:controller].split('_').map(&:capitalize).join(' ')
+      params[:controller].humanize
     end
 
     def action_translation
       breadcrumbs_t("controllers.#{ params[:controller] }.#{ breadcrumbs_action_name }") ||
-      breadcrumbs_t("actions.#{ breadcrumbs_action_name }")
+      breadcrumbs_t("actions.#{ breadcrumbs_action_name }") ||
+      params[:action].humanize
     end
 
     def controllers_index_path

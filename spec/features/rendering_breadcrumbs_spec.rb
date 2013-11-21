@@ -12,7 +12,7 @@ feature 'Rendering breadcrumbs' do
   # Country name page -----------------------------------------------------------------------------
 
   let(:country_name_page) { BreadcrumbPage.new(index: country_names_path) }
-  let(:country_name_index_breadcrumbs) { root_breadcrumbs + ['Country Names'] }
+  let(:country_name_index_breadcrumbs) { root_breadcrumbs + ['Country names'] }
 
   # City page -------------------------------------------------------------------------------------
 
@@ -30,6 +30,7 @@ feature 'Rendering breadcrumbs' do
                        show:  user_path('id'),
                        edit:  edit_user_path('id'),
                        dup:   dup_user_path('id'),
+                       ban:   ban_user_path('id'),
                        sync:  sync_users_path
   }
   let(:user_index_breadcrumbs) { root_breadcrumbs  + [locale['controllers']['users']['index']] }
@@ -37,6 +38,7 @@ feature 'Rendering breadcrumbs' do
   let(:user_edit_breadcrumbs)  { user_index_breadcrumbs + [locale['controllers']['users']['edit']] }
   let(:user_dup_breadcrumbs)   { user_index_breadcrumbs + [locale['controllers']['users']['dup']] }
   let(:user_sync_breadcrumbs)  { user_index_breadcrumbs + [locale['controllers']['users']['sync']] }
+  let(:user_ban_breadcrumbs)   { user_index_breadcrumbs + ['Ban'] }
 
   # -----------------------------------------------------------------------------------------------
 
@@ -73,5 +75,8 @@ feature 'Rendering breadcrumbs' do
 
     user_page.visit_page(:sync)
     expect(user_page.breadcrumbs).to eq(user_sync_breadcrumbs)
+
+    user_page.visit_page(:ban)
+    expect(user_page.breadcrumbs).to eq(user_ban_breadcrumbs)
   end
 end

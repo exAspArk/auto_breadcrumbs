@@ -13,4 +13,7 @@ class UsersController < ApplicationController
 
   def sync
   end
+
+  def ban
+  end
 end

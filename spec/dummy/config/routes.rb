@@ -3,7 +3,10 @@ Dummy::Application.routes.draw do
 
   resources :users, only: [:index, :show, :edit] do
     get :sync, on: :collection
-    get :dup,  on: :member
+    member do
+      get :dup
+      get :ban
+    end
   end
 
   resources :country_names, only: [:index]
