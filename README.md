@@ -60,6 +60,17 @@ For example, if you go to `/users/1/edit` it will show breadcrums like `Home / U
 In case when translations are absent it will try to build breadcrumbs automatically depending on resource and action names.
 For example, if you visit `/countries/new` it will show breadcrums `Home / Countries / New`.
 
+You can also use helper methods `resource_translation` and `action_translation` like this:
+
+```erb
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= [resource_translation, action_translation].compact.join(' | ') %></title>
+  </head>
+</html>
+```
+
 ## Customization
 
 For more information about customization of breadcrumbs visit [breadcrumbs_on_rails](https://github.com/weppos/breadcrumbs_on_rails).
