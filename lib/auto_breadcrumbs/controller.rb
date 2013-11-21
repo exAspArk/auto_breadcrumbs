@@ -17,14 +17,16 @@ module AutoBreadcrumbs
       add_breadcrumb breadcrumbs_t('root'), :root_path
 
       unless request.path == root_path
-        add_breadcrumb(resource_translation, index_path) if index_path
+        add_breadcrumb(resource_translation, index_path) if resource_translation
         add_breadcrumb(action_translation)               if action_translation
       end
     end
 
     def resource_translation
-      breadcrumbs_t("controllers.#{ params[:controller] }.index") ||
-      params[:controller].humanize
+      if index_path
+        breadcrumbs_t("controllers.#{ params[:controller] }.index") ||
+        params[:controller].humanize
+      end
     end
 
     def action_translation
