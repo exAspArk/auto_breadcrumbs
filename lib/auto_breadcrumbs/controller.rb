@@ -18,7 +18,7 @@ module AutoBreadcrumbs
 
       unless request.path == root_path
         add_breadcrumb(resource_translation, index_path) if index_path
-        add_breadcrumb(action_translation) unless params[:action] == 'index'
+        add_breadcrumb(action_translation)               if action_translation
       end
     end
 
@@ -28,9 +28,11 @@ module AutoBreadcrumbs
     end
 
     def action_translation
-      breadcrumbs_t("controllers.#{ params[:controller] }.#{ breadcrumbs_action_name }") ||
-      breadcrumbs_t("actions.#{ breadcrumbs_action_name }") ||
-      breadcrumbs_action_name.humanize
+      unless params[:action] == 'index'
+        breadcrumbs_t("controllers.#{ params[:controller] }.#{ breadcrumbs_action_name }") ||
+        breadcrumbs_t("actions.#{ breadcrumbs_action_name }") ||
+        breadcrumbs_action_name.humanize
+      end
     end
 
     def index_path
