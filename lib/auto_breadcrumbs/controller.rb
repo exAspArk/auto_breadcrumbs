@@ -20,33 +20,35 @@ module AutoBreadcrumbs
         # nested resources
         Rails.application.routes.router.recognize(request) do |route, matches, param|
           route.required_parts[0...-1].each do |required_part|
-            resources_name       = required_part.to_s.gsub('_id', '').pluralize
-            resource_translation = resource_translation(resources_name)
-            resource_index_path  = index_path(resources_name)
-            action_translation   = action_translation(resources_name, 'show')
+            resources_name              = required_part.to_s.gsub('_id', '').pluralize
+            resource_index_path         = index_path(resources_name)
+            nested_resource_translation = resource_translation(resources_name)
+            nested_action_translation   = action_translation(resources_name, 'show')
 
-            add_breadcrumb(resource_translation, resource_index_path) if resource_translation
-            add_breadcrumb(action_translation)                        if action_translation
+            add_breadcrumb(nested_resource_translation, resource_index_path) if nested_resource_translation
+            add_breadcrumb(nested_action_translation)                        if nested_action_translation
           end
         end
 
-        resource_translation = resource_translation(params[:controller])
-        resource_index_path  = index_path(params[:controller])
-        action_translation   = action_translation(params[:controller], params[:action])
-
+        resource_index_path = index_path(params[:controller])
         add_breadcrumb(resource_translation, resource_index_path) if resource_translation
         add_breadcrumb(action_translation)                        if action_translation
       end
     end
 
-    def resource_translation(resources_name)
+    def resource_translation(resources_name = nil)
+      resources_name ||= params[:controller]
+
       if index_path(resources_name)
         breadcrumbs_t("controllers.#{ resources_name }.index") ||
         resources_name.humanize
       end
     end
 
-    def action_translation(resources_name, action_name)
+    def action_translation(resources_name = nil, action_name = nil)
+      resources_name ||= params[:controller]
+      action_name ||= params[:action]
+
       mapped_action_name = breadcrumbs_action_name(action_name)
 
       unless mapped_action_name == 'index'
