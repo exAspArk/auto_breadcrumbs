@@ -12,5 +12,5 @@ en:
         sync: 'Synchronization'
         dup: 'Duplication'
       cities:
-        index: 'Cities / Towns'
+        index: 'Cities & Towns'
         show: 'Browse'

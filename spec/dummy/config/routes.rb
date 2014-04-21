@@ -11,5 +11,7 @@ Dummy::Application.routes.draw do
 
   resources :country_names, only: [:index]
 
-  resources :cities, only: [:edit, :show]
+  resources :cities, only: [:index, :edit, :show] do
+    resources :users, only: :show
+  end
 end
