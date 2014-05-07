@@ -74,7 +74,12 @@ module AutoBreadcrumbs
     end
 
     def breadcrumbs_t(path)
-      I18n.t('auto_breadcrumbs.' << path, default: '').presence
+      translation_key = 'auto_breadcrumbs.' << path
+      begin
+        I18n.t!(translation_key + '_html').html_safe
+      rescue I18n::MissingTranslationData
+        I18n.t(translation_key, default: '').presence
+      end
     end
   end
 end

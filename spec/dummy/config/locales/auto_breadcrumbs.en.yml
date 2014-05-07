@@ -1,6 +1,6 @@
 en:
   auto_breadcrumbs:
-    root: 'Home'
+    root_html: 'Home'
     actions:
       new: 'New'
       show: 'Show'
